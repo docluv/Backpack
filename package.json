@@ -8,9 +8,14 @@
     "url": "https://github.com/docluv/backpack/LICENSE"
   },
   "devDependencies": {
-    "grunt": "*",
-    "grunt-contrib-jshint": "*",
-    "grunt-contrib-uglify": "*",
-    "grunt-contrib-qunit": "*"
+		"grunt" :                       "~0.4.*",
+		"grunt-contrib-cssmin":         "*",
+		"grunt-contrib-qunit":         "*",
+		"grunt-contrib-jshint":         "*",
+		"grunt-contrib-uglify":         "*",
+        "grunt-contrib-watch":         "*",
+        "grunt-bump":                   "*",
+		"matchdep":                     "*"
+
   }
 }
