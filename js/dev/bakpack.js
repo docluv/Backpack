@@ -4,11 +4,24 @@
 
     "use strict";
 
-    var backpack = function (customSettings) {
+    var backpack = function (settings) {
 
-        var that = new backpack.fn.init(customSettings);
+        var that = new backpack.fn.init(customSettings),
+            name, copy;
 
-        that.settings = $.extend({}, that.settings, customSettings);
+        for (name in that.settings) {
+
+            copy = settings[name];
+
+            // Prevent never-ending loop
+            if (that.settings === copy) {
+                continue;
+            }
+
+            if (copy !== undefined) {
+                that.settings[name] = copy;
+            }
+        }
 
         return that;
     };
@@ -22,13 +35,26 @@
             return this;
         },
 
-        version: "0.0.3",
+        version: "0.0.4",
+
+        parseLocalStorage : function (key) {
+
+        var value = localStorage.getItem(key);
+
+        if (!value) {
+            return {};
+        }
+
+        return JSON.parse(value) || {};
+
+    },
 
         getTemplates: function (remove) {
 
-            var i, temp,
+            var that = this,
+                i, temp,
                 t = document.querySelectorAll("script[type='" + this.settings.templateType + "']"),
-                templates = $.parseLocalStorage("templates");
+                templates = that.parseLocalStorage("templates");
 
             for (i = 0; i < t.length; i++) {
 
