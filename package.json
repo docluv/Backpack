@@ -1,6 +1,12 @@
 {
   "name": "backpack",
   "version": "0.0.3",
+  "homepage": "https://github.com/docluv/backpack",
+  "author": "Chris Love",
+  "license": {
+    "type": "Apache",
+    "url": "https://github.com/docluv/backpack/LICENSE"
+  },
   "devDependencies": {
     "grunt": "*",
     "grunt-contrib-jshint": "*",

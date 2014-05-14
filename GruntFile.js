@@ -1,8 +1,25 @@
 module.exports = function (grunt) {
+    
+    // Force use of Unix newlines
+    grunt.util.linefeed = '\n';
+
+    RegExp.quote = function (string) {
+        return string.replace(/[-\\^$*+?.()|[\]{}]/g, '\\$&');
+    };
+
+    var fs = require('fs');
+    var path = require('path');
+
 
     // Project configuration.
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
+        banner: '/*!\n' +
+            ' * <%= pkg.name %> v<%= pkg.version %> (<%= pkg.homepage %>)\n' +
+            ' * Copyright 2013-<%= grunt.template.today("yyyy") %> <%= pkg.author %>\n' +
+            ' * Licensed under <%= pkg.license.type %> (<%= pkg.license.url %>)\n' +
+            ' */\n',
+
         qunit: {
             all: ['js/specs/**/*.html']
         },
@@ -14,7 +31,8 @@ module.exports = function (grunt) {
         },
         uglify: {
             options: {
-                compress: true
+                compress: true,
+                banner: '<%= banner %>'
             },
             //    options: {
             //        banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - ' +
