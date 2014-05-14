@@ -6,7 +6,7 @@
 
     var backpack = function (settings) {
 
-        var that = new backpack.fn.init(customSettings),
+        var that = new backpack.fn.init(),
             name, copy;
 
         for (name in that.settings) {

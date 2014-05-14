@@ -10,6 +10,8 @@ module.exports = function (grunt) {
     var fs = require('fs');
     var path = require('path');
 
+    
+    require("matchdep").filterDev("grunt-*").forEach(grunt.loadNpmTasks);
 
     // Project configuration.
     grunt.initConfig({
@@ -34,11 +36,6 @@ module.exports = function (grunt) {
                 compress: true,
                 banner: '<%= banner %>'
             },
-            //    options: {
-            //        banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - ' +
-            //'<%= grunt.template.today("yyyy-mm-dd") %> */'
-            //    },
-
             backpack: {
                 src: [
                 'js/dev/*.js'
@@ -48,7 +45,7 @@ module.exports = function (grunt) {
         }
     });
 
-    grunt.loadNpmTasks('grunt-contrib-uglify');
+//    grunt.loadNpmTasks('grunt-contrib-uglify');
  //   grunt.loadNpmTasks('grunt-contrib-jshint');
   //  grunt.loadNpmTasks('grunt-contrib-qunit');
 
