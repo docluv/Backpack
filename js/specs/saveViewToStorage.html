@@ -36,6 +36,10 @@
             height: 100px;
             width: 100px;
         }
+
+        .content-pane {
+            display: none;
+        }
     </style>
 
 </head>
@@ -55,19 +59,25 @@
         </div>
     </div>
 
+    <section id="realView" class="content-pane"
+             spa-title="realView"
+             spa-transition="slide"
+             spa-route="realroute\:id"></section>
+
+
     <script type="text/javascript">
-            jQuery(document)
-                    .ready(function(){
-                            jQuery('#qunit-tests').addClass('hidepass');
-                    })
-                    .delegate("#qunit-testrunner-toolbar", "DOMNodeInserted", function(e){
-                            jQuery("#qunit-filter-pass").attr("checked", true)
-                    })
-                    .delegate("#qunit-filter-pass", "click", function(e){
-                            e.stopPropagation();
-                            var newValue = $(this).is(":checked");
-                            jQuery('#qunit-tests').toggleClass('hidepass', newValue);
-                    });
+        jQuery(document)
+                .ready(function () {
+                    jQuery('#qunit-tests').addClass('hidepass');
+                })
+                .delegate("#qunit-testrunner-toolbar", "DOMNodeInserted", function (e) {
+                    jQuery("#qunit-filter-pass").attr("checked", true)
+                })
+                .delegate("#qunit-filter-pass", "click", function (e) {
+                    e.stopPropagation();
+                    var newValue = $(this).is(":checked");
+                    jQuery('#qunit-tests').toggleClass('hidepass', newValue);
+                });
     </script>
 
 </body>

@@ -24,7 +24,6 @@ var mockViewInfo = {
         pageId: "realView",
         viewTitle: "realView",
         tranistion: "slide",
-        route: "realroute\:id",
         content: '<section id="realView" class="content-pane" spa-title="realView" spa-transition="slide" spa-route="realroute\:id"></section>'
     },
     REALVIEWID = "realView",

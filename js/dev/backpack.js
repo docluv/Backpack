@@ -59,7 +59,15 @@
 
         },
 
-        parseViewInfo: function(view) {
+        parseViewInfo: function (view) {
+
+            if (typeof view === "string") {
+                view = document.getElementById(view);
+            }
+
+            if (typeof view === undefined || view === null) {
+                return;
+            }
 
             return {
                 pageId: view.id,

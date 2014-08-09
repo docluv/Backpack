@@ -36,6 +36,12 @@
             height: 100px;
             width: 100px;
         }
+
+        
+        .content-pane {
+            display: none;
+        }
+
     </style>
 
 </head>
@@ -54,6 +60,12 @@
             <section class="operation-body"></section>
         </div>
     </div>
+
+    <section id="realView" class="content-pane"
+             spa-title="realView"
+             spa-transition="slide"
+             spa-route="realroute\:id"></section>
+
 
     <script type="text/javascript">
             jQuery(document)
